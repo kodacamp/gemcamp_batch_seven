@@ -20,13 +20,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <%= link_to 'Home', root_path, class: "nav-link #{'active' if current_page?(root_path)}", 'aria-current': 'page' %>
+            <%= link_to 'Home', root_path, class: "nav-link #{'active text-light bg-dark' if current_page?(root_path)}", 'aria-current': 'page' %>
           </li>
           <li class="nav-item">
-            <%= link_to 'About US', about_us_path, class: "nav-link #{'active' if current_page?(about_us_path)}", 'aria-current': 'page' %>
+            <%= link_to 'About US', about_us_path, class: "nav-link #{'active text-light bg-dark' if current_page?(about_us_path)}", 'aria-current': 'page' %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Contact', contact_path, class: "nav-link #{'active' if action_name == 'contact' && controller_name == 'welcome'}", 'aria-current': 'page' %>
+            <%= link_to 'Contact', contact_path, class: "nav-link #{'active text-light bg-dark' if action_name == 'contact' && controller_name == 'welcome'}", 'aria-current': 'page' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Posts', posts_path, class: "nav-link #{'active text-light bg-dark' if controller_name == 'posts'}", 'aria-current': 'page' %>
           </li>
         </ul>
       </div>

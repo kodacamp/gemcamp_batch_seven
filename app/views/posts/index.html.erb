@@ -1,5 +1,5 @@
 <h1>Post</h1>
-
+<%= link_to 'New Post', new_post_path, class: 'btn btn-lg btn-success' %>
 <div class="container">
   <table class="table table-dark table-striped">
     <thead>
@@ -17,7 +17,9 @@
         <td><%= post.content %></td>
         <td><%= post.created_at %></td>
         <td>
-          <%= button_to 'Delete', post_path(post), method: :delete %>
+          <%= link_to 'show', post_path(post), class: 'btn btn-sm btn-primary' %>
+          <%= link_to 'edit', edit_post_path(post), class: 'btn btn-sm btn-warning' %>
+          <%= button_to 'Delete', post_path(post), method: :delete, class: 'btn btn-sm btn-danger' %>
         </td>
       </tr>
     <% end %>
