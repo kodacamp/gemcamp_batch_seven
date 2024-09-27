@@ -8,7 +8,29 @@ Rails.application.routes.draw do
   get 'contact', to: 'welcome#contact'
 
   resources :posts
+  # resources :posts do
+  #   collection do
+  #     patch 'bulk_update'
+  #     get 'archives'
+  #   end
+  #   member do
+  #     get 'details'
+  #     get 'authors'
+  #     get 'publishers'
+  #   end
+  #
+  #   # patch 'bulk_update', on: :collection
+  #   # get 'archives', on: :collection
+  #
+  #   # get 'details', on: :member
+  #   # get 'authors', on: :member
+  #   # get 'publishers', on: :member
+  # end
+
+  #get 'posts/authors', to: 'posts#authors', as: 'posts_authors'
+
   # TODO: read the difference between `resource` and `resources`
+
   # get 'posts', to: 'posts#index'
   # post 'posts', to: 'posts#create'
   # get 'posts/new', to: 'posts#new'
