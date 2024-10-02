@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_01_032550) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_02_052805) do
+  create_table "courses", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "customers", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -34,5 +40,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_01_032550) do
     t.index ["customer_id"], name: "index_profiles_on_customer_id"
   end
 
+  create_table "students", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.bigint "course_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_students_on_course_id"
+  end
+
   add_foreign_key "profiles", "customers"
+  add_foreign_key "students", "courses"
 end
