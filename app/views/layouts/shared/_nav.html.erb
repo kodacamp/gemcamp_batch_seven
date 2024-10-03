@@ -18,6 +18,9 @@
         <li class="nav-item">
           <%= link_to 'Posts', posts_path, class: "nav-link #{'active text-light bg-dark' if controller_name == 'posts'}", 'aria-current': 'page' %>
         </li>
+        <li class="nav-item">
+          <%= link_to 'Categories', categories_path, class: "nav-link #{'active text-light bg-dark' if controller_name == 'categories'}", 'aria-current': 'page' %>
+        </li>
       </ul>
     </div>
   </div>

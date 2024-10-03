@@ -1,0 +1,13 @@
+<h1>Category</h1>
+
+<%= link_to 'new', new_category_path, class: 'btn btn-lg btn-success' %>
+
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <%= category.name %>
+      <%= link_to 'edit', edit_category_path(category), class: 'btn btn-sm btn-warning' %>
+      <%= button_to 'delete', category_path(category), method: :delete, class: 'btn btn-sm btn-danger' %>
+    </li>
+  <% end %>
+</ul>
