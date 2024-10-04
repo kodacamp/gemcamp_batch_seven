@@ -8,5 +8,8 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
+  <div class="mb-3">
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  </div>
   <%= form.submit %>
 <% end %>

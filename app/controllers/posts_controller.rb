@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # https://www.youtube.com/watch?v=SnRq1_VXVVc
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(:categories).all
   end
 
   def new
@@ -21,7 +21,6 @@ class PostsController < ApplicationController
 
     # @post = Post.new(title: params[:post][:title],
     #                  content: params[:post][:content])
-
     @post = Post.new(post_params)
 
     if @post.save
@@ -60,6 +59,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, category_ids: [])
   end
 end

@@ -6,6 +6,7 @@
     <tr>
       <td>Title</td>
       <td>Content</td>
+      <td>Categories</td>
       <td>Created At</td>
       <td>Actions</td>
     </tr>
@@ -15,6 +16,7 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
+        <td><%= post.categories.pluck(:name).join(', ') %></td>
         <td><%= post.created_at %></td>
         <td>
           <%= link_to 'show', post_path(post), class: 'btn btn-sm btn-primary' %>

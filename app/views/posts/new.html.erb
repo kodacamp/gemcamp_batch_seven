@@ -18,6 +18,9 @@
       <%= form.text_area :content, class: "form-control" %>
     </div>
     <div class="mb-3">
+      <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
+    </div>
+    <div class="mb-3">
       <%= form.submit class: 'btn btn-lg btn-success'%>
     </div>
   <% end %>
