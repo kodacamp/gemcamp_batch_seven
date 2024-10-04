@@ -8,4 +8,6 @@ class Post < ApplicationRecord
   validates :content, presence: true, length: { minimum: 5, maximum: 4000 }
 
   has_many :comments
+  has_many :post_category_ships
+  has_many :categories, through: :post_category_ships
 end
