@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   # before_action :set_post, except: [:index, :new, :create]
   # Todo: Try to learn about callbacks
   # https://www.youtube.com/watch?v=SnRq1_VXVVc
 
   def index
-    @posts = Post.includes(:categories).all
+    @posts = Post.includes(:categories).order(created_at: :desc)
   end
 
   def new
@@ -22,7 +23,7 @@ class PostsController < ApplicationController
     # @post = Post.new(title: params[:post][:title],
     #                  content: params[:post][:content])
     @post = Post.new(post_params)
-
+    @post.user = current_user
     if @post.save
       flash[:notice] = 'Post created successfully'
       redirect_to posts_path
