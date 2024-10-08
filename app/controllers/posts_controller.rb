@@ -7,7 +7,12 @@ class PostsController < ApplicationController
   # https://www.youtube.com/watch?v=SnRq1_VXVVc
 
   def index
-    @posts = Post.includes(:categories, :user).order(created_at: :desc)
+    Product.where(available: false).where("quantity > '0'")
+    Product.where(quantity: 10..100)
+    @posts = Post.includes(:categories, :user)
+                 .order(created_at: :desc)
+                 .page(params[:page])
+                 .per(5)
   end
 
   def new
