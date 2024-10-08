@@ -1,5 +1,6 @@
 <h1>Post</h1>
 <%= link_to 'New Post', new_post_path, class: 'btn btn-lg btn-success' %>
+<%= paginate @posts %>
 <div class="container">
   <table class="table table-dark table-striped">
     <thead>
@@ -40,4 +41,5 @@
     <% end %>
     </tbody>
   </table>
+  <%= paginate @posts %>
 </div>
