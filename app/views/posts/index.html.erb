@@ -8,6 +8,7 @@
       <td>Title</td>
       <td>Content</td>
       <td>Categories</td>
+      <td>Comments Count</td>
       <td>Created At</td>
       <td>Actions</td>
     </tr>
@@ -19,6 +20,10 @@
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         <td><%= post.categories.pluck(:name).join(', ') %></td>
+        <td>
+          <%#= post.comments.size %>
+          <%= post.comments_count %>
+        </td>
         <td><%= post.created_at %></td>
         <td>
           <%= link_to 'show', post_path(post), class: 'btn btn-sm btn-primary' %>
