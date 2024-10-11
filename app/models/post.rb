@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   default_scope { where(deleted_at: nil) }
+  mount_uploader :image, ImageUploader
 
   # Todo: Read more about https://guides.rubyonrails.org/v3.2/active_record_validations_callbacks.html
   validates :title, presence: true
