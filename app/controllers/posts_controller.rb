@@ -7,6 +7,9 @@ class PostsController < ApplicationController
   # Todo: Try to learn about callbacks
   # https://www.youtube.com/watch?v=SnRq1_VXVVc
 
+
+
+
   def index
     @posts = Post.includes(:categories, :user)
                  .order(created_at: :desc)
