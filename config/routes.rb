@@ -13,6 +13,14 @@ Rails.application.routes.draw do
     resources :comments, except: :show
   end
   resources :categories, except: :show
+
+  namespace :api do
+    namespace :v1 do
+      resources :regions, only: %i[index show], defaults: { format: :json }
+    end
+  end
+
+
   # resources :posts do
   #   collection do
   #     patch 'bulk_update'
